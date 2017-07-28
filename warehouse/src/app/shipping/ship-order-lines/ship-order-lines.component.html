@@ -1,0 +1,24 @@
+<section id="orderLines">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Got it!</th>
+        <th>Location</th>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Quantity</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let line of lines" [ngClass]="{'lineBackground':line.picked}">
+        <td><input class="big-checkbox" [(ngModel)]= "line.picked" type="checkbox"></td>
+        <td *ngIf="line.locationID; else location">{{line.locationID}}</td>
+        <ng-template #location><button class="btn" (click)="getBestLocation(line)">Get best location</button></ng-template>
+        <td>{{line.productID}}</td>
+        <td><img src={{line.product.imageUrl}}></td>
+        <td>{{line.quantity}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</section>

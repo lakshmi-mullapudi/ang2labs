@@ -1,0 +1,18 @@
+<section class="panel panel-primary">
+  <div class="panel-heading">
+    Orders ready to be picked: {{orders.length}}
+  </div>
+  <div class="panel-body">
+    <p class="alert alert-danger">
+      Our customers are our top priority! Please make sure these orders are picked, packed, and shipped as soon as possible.
+    </p>
+    <p *ngIf="orders.length==0" class="alert alert-info">
+      All orders have been taken care of.
+    </p>
+  </div>
+  <app-list-of-orders [orders]="orders"></app-list-of-orders>
+  <!-- End of container div -->
+</section>
+
+
+<!-- End of panel -->
